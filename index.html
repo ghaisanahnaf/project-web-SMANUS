@@ -843,6 +843,42 @@
             color: var(--accent);
             margin-bottom: 20px;
         }
+
+        @media (max-width: 768px) {
+    /* Menghilangkan menu asli agar tidak berantakan */
+    .navbar-menu { 
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Sesuaikan dengan tinggi navbar Anda */
+        left: 0;
+        width: 100%;
+        background-color: #001f3f; /* Warna navy sekolah Anda */
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    /* Munculkan menu saat class 'active' dipicu */
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    /* Gaya tombol garis tiga (Hamburger) */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+    
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #d4af37; /* Warna emas sekolah Anda */
+        margin: 5px auto;
+    }
+}
     </style>
 
 </head>
@@ -856,6 +892,11 @@
             <div class="logo">
                 <img src="img/logo smanus.png" alt="Logo" class="img-logo">
                 <span>SMA Negeri Unggul Sigli Swiss</span>
+                <button class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
             </div>
             <ul>
                 <li class="dropdown">
@@ -1190,6 +1231,14 @@
         });
     </script>
 
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.querySelector('.navbar-menu'); // Pastikan class ini sesuai dengan nama class menu Anda
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+</script>
 </body>
 
 </html>
