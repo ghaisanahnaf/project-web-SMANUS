@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA Negeri Unggul Sigli Swiss - Website Resmi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #050a12;
+            /* Hitam Kebiruan (Midnight) */
+            --accent: #e5c07b;
+            /* Emas Soft */
+            --surface: #121821;
+            /* Warna kartu/box */
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            /* Sesuaikan 80px dengan tinggi navbar Anda */
+            scroll-margin-top: 80px;
+        }
+
+        .glow-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(229, 192, 123, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 35, 71, 0.1) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        body {
+            background-color: #020408;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(229, 192, 123, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 51, 102, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(229, 192, 123, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(0, 35, 71, 0.2) 0px, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020408;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#020408, #e5c07b, #020408);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #003366;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Menambahkan garis kecil di bawah judul */
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background: #ffcc00;
+            /* Warna kuning sekolah */
+            border-radius: 2px;
+        }
+
+        /* Mengatur font khusus untuk Judul */
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo span,
+        .dropbtn {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            /* Membuat judul lebih tebal */
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95)
+                /* Putih transparan */
+                backdrop-filter: blur(10px);
+            /* Efek kaca buram */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            /* Transparansi */
+            backdrop-filter: blur(15px);
+            /* Efek kaca buram premium */
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav ul li a {
+            color: #003366 !important;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        /* Efek garis bawah saat hover yang elegan */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #ffcc00;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Mengatur navigasi agar lebih bersih */
+        nav ul li a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            /* Membuat menu menjadi huruf kapital semua */
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            /* Memberi jarak antar huruf agar elegan */
+        }
+
+        /* CSS Dasar & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        /* Navigasi */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            color: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            #ffcc00
+        }
+
+        /* Style Dasar Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Wadah Menu yang Sembunyi */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        /* Link di dalam Dropdown */
+        .dropdown-content a {
+            color: #333 !important;
+            /* Warna teks gelap agar terbaca di bg putih */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        /* Container Organisasi */
+        .organisasi-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .pimpinan-utama {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .grid-staf {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* Kartu Staf */
+        .kartu-staf {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #003366;
+            /* Garis warna identitas sekolah */
+        }
+
+        .kartu-staf img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            /* Membuat foto jadi bulat */
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #eee;
+        }
+
+        .kartu-staf h3 {
+            font-size: 1.1rem;
+            color: #003366;
+            margin-bottom: 5px;
+        }
+
+        .kartu-staf p {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: bold;
+        }
+
+        /* Efek Hover: Munculkan Menu */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            color: #ffcc00;
+        }
+
+        /* Mengatur wadah logo agar sejajar horizontal */
+        .logo {
+            color: #003366;
+            display: flex;
+            align-items: center;
+            /* Teks dan gambar rata tengah secara vertikal */
+            gap: 10px;
+            /* Memberi jarak antara logo dan tulisan */
+        }
+
+        /* Mengatur ukuran logo */
+        .img-logo {
+            height: 60px;
+            /* Sesuaikan tinggi logo dengan kebutuhan */
+            width: auto;
+            /* Lebar otomatis mengikuti proporsi tinggi */
+            object-fit: contain;
+        }
+
+        /* Tambahan: pastikan nav tetap rapi */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            /* Memberi ruang antara logo di kiri dan menu di kanan */
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('tes1.jpg');
+            /* Ganti dengan nama file Anda */
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Konten Utama */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h2 {
+            color: #003366;
+            margin-bottom: 20px;
+            border-left: 5px solid #ffcc00;
+            padding-left: 10px;
+        }
+
+        /* CSS Tambahan untuk Foto Fasilitas */
+        .card {
+            padding: 0;
+            /* Menghilangkan padding agar foto menempel ke pinggir kartu */
+            overflow: hidden;
+            /* Agar sudut foto mengikuti lengkungan kartu */
+        }
+
+        .img-fasilitas {
+            width: 100%;
+            height: 200px;
+            /* Mengatur tinggi foto agar seragam */
+            object-fit: cover;
+            /* Foto akan otomatis terpotong (crop) agar tidak gepeng */
+            display: block;
+        }
+
+        .card-content {
+            padding: 20px;
+            /* Memberikan ruang teks di bawah foto */
+        }
+
+        /* Grid System (Fasilitas & Galeri) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Tabel Biaya */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #003366;
+            color: white;
+        }
+
+        /* Tombol SPMB */
+        .btn-spmb {
+            background: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn-spmb:hover {
+            background: #d35400;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .footer-box {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+
+        /* Style Berita */
+        .berita-item {
+            display: flex;
+            gap: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .berita-item img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .tgl-posting {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .berita-text h3 {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            color: #003366;
+        }
+
+        .berita-text a {
+            font-size: 0.9rem;
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Style Agenda */
+        .agenda-box {
+            background: #003366;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .agenda-item:last-child {
+            border-bottom: none;
+        }
+
+        .agenda-tgl {
+            background: #ffcc00;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 15px;
+            min-width: 50px;
+            line-height: 1.2;
+        }
+
+        .agenda-tgl span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .btn-wa-langsung {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            /* Membuat tombol lonjong/rounded */
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-wa-langsung:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            /* Efek melayang saat kursor di atasnya */
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            /* Rasio 16:9 */
+            position: relative;
+            height: 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('tes1.jpg');
+            background-attachment: fixed;
+            /* Ini efek parallax */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-premium {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 35, 71, 0.8), rgba(0, 35, 71, 0.8)), url('img/tes1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Efek Parallax */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .highlight {
+            color: var(--accent);
+            background: linear-gradient(transparent 70%, rgba(212, 175, 55, 0.3) 30%);
+        }
+
+        .btn-primary,
+        .btn-outline {
+            display: inline-block;
+            /* Agar margin dan padding bekerja sempurna */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+
+        .btn-primary:hover,
+        .btn-outline:hover {
+            transform: translateY(-5px);
+            /* Efek tombol sedikit naik saat disentuh */
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Memberi jarak pada paragraf di bawah judul */
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            /* Jarak antara Judul dan Paragraf */
+            margin-bottom: 40px;
+            /* Jarak antara Paragraf dan Tombol */
+            max-width: 700px;
+            /* Agar teks tidak terlalu lebar ke samping */
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Memberi jarak ekstra pada area tombol */
+        .hero-btns {
+            margin-top: 30px;
+            /* Jarak tambahan jika diperlukan */
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* Memberi jarak antara tombol kiri dan kanan */
+        }
+
+        .stats-section {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0;
+            margin-top: -50px;
+            /* Membuat section agak naik ke area hero */
+            z-index: 10;
+            position: relative;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .premium-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #003366;
+        }
+
+        .ekstra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .ekstra-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid #eee;
+        }
+
+        .ekstra-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #ffcc00;
+        }
+
+        .ekstra-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            z-index: 9999;
+            width: 0%;
+        }
+
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 0 0 rgba(229, 192, 123, 0.4);
+            animation: pulse-gold 1s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 0 0 0 rgba(229, 192, 123, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(229, 192, 123, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(229, 192, 123, 0);
+            }
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Responsif otomatis */
+            gap: 25px;
+            align-items: start;
+            /* Kartu tidak dipaksa tinggi sama jika teks berbeda */
+        }
+
+        .bento-item {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px 30px;
+            /* Ruang dalam yang lega */
+            height: auto;
+            /* TINGGI MENGIKUTI TEKS */
+            display: block;
+            /* Mengubah dari flex ke block agar urutan teks natural */
+            transition: 0.4s ease;
+        }
+
+        .bento-item h3 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .bento-item p {
+            margin: 0;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bento-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            /* Memberi efek cahaya emas halus */
+            box-shadow: 0 10px 40px rgba(229, 192, 123, 0.15);
+        }
+
+        .premium-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .item-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .item-medium {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .bento-item i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="glow-bg"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo smanus.png" alt="Logo" class="img-logo">
+                <span>SMA Negeri Unggul Sigli Swiss</span>
+            </div>
+            <ul>
+                <li class="dropdown">
+                    <a href="#profil" class="dropbtn">Profil &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="#sejarah">Sejarah</a>
+                        <a href="#visi-misi">Visi & Misi</a>
+                        <a href="#struktur">Struktur Organisasi</a>
+                    </div>
+                </li>
+                <li><a href="#spmb">SPMB</a></li>
+                <li><a href="#prestasi">Prestasi</a></li>
+                <li><a href="#fasilitas">Fasilitas</a></li>
+                <li><a href="#biaya">Biaya</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="hero-premium">
+        <div class="hero-content" data-aos="zoom-out">
+            <span class="subtitle">Selamat Datang di Portal Resmi SMA Negeri Unggul Sigli Swiss</span>
+            <h1>Membangun Generasi<br><span class="highlight">Cerdas & Berkarakter Islami </span></h1>
+
+            <p>Institusi pendidikan berstandar internasional dengan kurikulum berbasis inovasi teknologi.</p>
+
+            <div class="hero-btns">
+                <a href="#spmb" class="btn-primary">Daftar Sekarang</a>
+                <a href="#profil" class="btn-primary">Jelajahi Profil</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="bento-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="premium-title">Mengapa Memilih Kami?</h2>
+            <div class="bento-grid">
+                <div class="bento-item item-large">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Bebas Biaya Pembangunan</h3>
+                </div>
+                <div class="bento-item item-small">
+                    <i class="fas fa-award"></i>
+                    <h3>Akreditasi A+</h3>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="stats-section" data-aos="fade-up">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h2>300+</h2>
+                <p>Siswa Aktif</p>
+            </div>
+            <div class="stat-item">
+                <h2>50+</h2>
+                <p>Guru Berlisensi</p>
+            </div>
+            <div class="stat-item">
+                <h2>50+</h2>
+                <p>Prestasi Nasional</p>
+            </div>
+            <div class="stat-item">
+                <h2>A</h2>
+                <p>Akreditasi Sekolah</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="spmb"
+            style="text-align: center; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <h2>Penerimaan Siswa Baru (SPMB)</h2>
+            <p>Pendaftaran Tahun Ajaran 2025/2026 telah dibuka secara online.</p>
+            <p>Klik tombol di bawah untuk langsung terhubung dengan Admin Pendaftaran kami.</p>
+
+            <a href="https://wa.me/6285260921983?text=Halo%20Admin%20SPMB%20SMA%20Unggul%2C%20saya%20ingin%20menanyakan%20informasi%20pendaftaran%20siswa%20baru."
+                target="_blank" class="btn-wa-langsung">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA Logo" width="20"
+                    style="margin-right: 10px; vertical-align: middle;">
+                Daftar via WhatsApp
+            </a>
+        </section>
+
+
+        <section id="profil">
+            <h2>Profil Sekolah</h2>
+            <p>SMA Negeri Unggul Sigli adalah salah satu sekolah menengah atas yang berada di kabupaten Pidie. Sekolah
+                ini didirikan tahun 2004 dan pada tahun ajran 2010/2011 mulai menempati gedung sendiri .
+                Pembangunan gedung sekolah diatas tanah seluas 3,5 hektare ini terdiri dari sekolah dan asrama merupakan
+                gedung yang didanai oleh Swiss Red Cros.</p>
+            <p><strong>Visi:</strong> Unggul dalam Prestasi Berwawasan IPTEK dan Lingkungan Berlandaskan IMTAQ.</p>
+        </section>
+
+        <section id="sejarah">
+            <h2>Sejarah Sekolah</h2>
+            <p>SMA Negeri Unggul didirikan pada tahun 1990 dengan tujuan...</p>
+        </section>
+
+        <section id="visi-misi" data-aos="fade-up">
+            <h2>Visi & Misi</h2>
+            <p><strong>Visi:</strong> Menjadi sekolah terdepan dalam inovasi.</p>
+            <p><strong>Misi:</strong> 1. Menyelenggarakan pendidikan berkualitas...</p>
+        </section>
+
+        <section id="struktur">
+            <h2>Struktur Organisasi</h2>
+            <div class="organisasi-container">
+                <div class="pimpinan-utama">
+                    <div class="kartu-staf">
+                        <img src="img/bj hbibie.jpeg" alt="Kepala Sekolah">
+                        <h3>Dr. H. Ahmad Fauzi, M.Pd</h3>
+                        <p>Kepala Sekolah</p>
+                    </div>
+                </div>
+
+                <div class="grid-staf">
+                    <div class="kartu-staf">
+                        <img src="img/bj hbibie.jpeg" alt="Wakil Kurikulum">
+                        <h3>Siti Aminah, S.Pd</h3>
+                        <p>Wakil Kepala Bid. Kurikulum</p>
+                    </div>
+                    <div class="kartu-staf">
+                        <img src="img/bj hbibie.jpeg" alt="Wakil Kesiswaan">
+                        <h3>Budi Santoso, S.T</h3>
+                        <p>Wakil Kepala Bid. Kesiswaan</p>
+                    </div>
+                    <div class="kartu-staf">
+                        <img src="img/bj hbibie.jpeg" alt="Kepala TU">
+                        <h3>Dian Pratama, S.E</h3>
+                        <p>Kepala Tata Usaha</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ekstrakurikuler" style="background: #f8f9fa; padding: 80px 0;">
+            <div class="container">
+                <h2 class="premium-title">Program Ekstrakurikuler</h2>
+                <div class="ekstra-grid">
+                    <div class="ekstra-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon">🤖</div>
+                        <h3>Robotik</h3>
+                        <p>Mengembangkan inovasi teknologi masa depan sejak dini.</p>
+                    </div>
+                    <div class="ekstra-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon">🏀</div>
+                        <h3>Basket</h3>
+                        <p>Membentuk kerjasama tim dan kesehatan fisik yang prima.</p>
+                    </div>
+                    <div class="ekstra-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="icon">🎭</div>
+                        <h3>Teater</h3>
+                        <p>Mengasah kepercayaan diri dan ekspresi seni peran.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="prestasi">
+            <h2>Prestasi Sekolah</h2>
+            <ul>
+                <li>Juara 1 Olimpiade Matematika Tingkat Provinsi (2023)</li>
+                <li>Medali Emas Lomba Karya Ilmiah Remaja Nasional (2022)</li>
+                <li>Juara Umum Kompetisi Olahraga Antar SMA (2023)</li>
+            </ul>
+        </section>
+
+        <section id="fasilitas">
+            <h2>Fasilitas Sekolah</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="img/tes2.jpg" alt="Laboratorium Komputer" class="img-fasilitas">
+                    <div class="card-content">
+                        <h3>Laboratorium Komputer</h3>
+                        <p>Dilengkapi dengan 40 PC high-end dan akses internet cepat untuk menunjang pembelajaran IT.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/tes3.jpg" alt="Perpustakaan" class="img-fasilitas">
+                    <div class="card-content">
+                        <h3>Perpustakaan Digital</h3>
+                        <p>Koleksi lebih dari 10.000 judul buku fisik dan akses e-book yang bisa dibaca di mana saja.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/tes4.jpg" alt="Lapangan Olahraga" class="img-fasilitas">
+                    <div class="card-content">
+                        <h3>Lapangan Olahraga</h3>
+                        <p>Fasilitas lapangan basket, futsal, dan voli yang luas dan berstandar nasional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="biaya">
+            <h2>Biaya Sekolah</h2>
+            <table>
+                <tr>
+                    <th>Komponen Biaya</th>
+                    <th>Jumlah</th>
+                </tr>
+                <tr>
+                    <td>Uang Pangkal (Gedung)</td>
+                    <td>Rp 5.000.000</td>
+                </tr>
+                <tr>
+                    <td>SPP per Bulan</td>
+                    <td>Rp 500.000</td>
+                </tr>
+                <tr>
+                    <td>Seragam (5 Pasang)</td>
+                    <td>Rp 1.200.000</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="galeri">
+            <h2>Galeri Kegiatan</h2>
+            <div class="grid">
+                <div class="card"><img src="img/tes4.jpg" alt="Upacara"></div>
+                <div class="card"><img src="img/tes4.jpg" alt="Pramuka"></div>
+                <div class="card"><img src="img/tes4.jpg" alt="Laboratorium"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <section id="informasi">
+        <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+
+            <div style="flex: 2; min-width: 300px;">
+                <h2>Berita Terbaru</h2>
+                <div class="berita-item">
+                    <img src="img/tes4.jpg" alt="Berita 1">
+                    <div class="berita-text">
+                        <span class="tgl-posting">24 Desember 2025</span>
+                        <h3>Siswa SMA Unggul Juara Lomba Robotik</h3>
+                        <p>Selamat kepada tim robotik yang berhasil meraih medali emas di tingkat nasional...</p>
+                        <a href="robotik.html">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="berita-item">
+                    <img src="img/tes4.jpg" alt="Berita 2">
+                    <div class="berita-text">
+                        <span class="tgl-posting">20 Desember 2025</span>
+                        <h3>Kegiatan Bakti Sosial Akhir Tahun</h3>
+                        <p>Seluruh siswa berpartisipasi dalam pembagian sembako kepada warga sekitar...</p>
+                        <a href="baktisosial.html">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 250px;">
+                <h2>Agenda Sekolah</h2>
+                <div class="agenda-box">
+                    <div class="agenda-item">
+                        <div class="agenda-tgl">05 <span>Jan</span></div>
+                        <p>Hari Pertama Semester Genap</p>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-tgl">12 <span>Jan</span></div>
+                        <p>Rapat Wali Murid Kelas XII</p>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-tgl">20 <span>Feb</span></div>
+                        <p>Ujian Tengah Semester</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="kontak" style="background: #fff; padding: 60px 0;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+
+                <div style="flex: 1; min-width: 300px;">
+                    <h2 style="border-left: 5px solid #ffcc00; padding-left: 10px;">Hubungi Kami</h2>
+                    <p style="margin-top: 20px;"><strong>Alamat:</strong><br>
+                        Jl. Pendidikan No. 123, Kebayoran Baru, Jakarta Selatan, 12110</p>
+
+                    <p style="margin-top: 15px;"><strong>Kontak:</strong><br>
+                        Email: info@smanunggul.sch.id<br>
+                        Telp: (021) 12345678<br>
+                        WA: 0812-3456-7890</p>
+
+                    <p style="margin-top: 15px;"><strong>Jam Operasional:</strong><br>
+                        Senin - Jumat: 07.00 - 15.30 WIB</p>
+                </div>
+
+                <div style="flex: 1; min-width: 300px;">
+                    <div class="map-responsive">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.6463568312324!2d95.92155887447521!3d5.384387935352584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040ed3e6d18c411%3A0xdfce280bedf4bb9f!2sSMAN%20Unggul%20Sigli%2C%20Kec.%20Pidie%2C%20Kabupaten%20Pidie%2C%20Aceh%2024151!5e1!3m2!1sid!2sid!4v1766572084332!5m2!1sid!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #222; color: white; padding: 20px; text-align: center;">
+        <p>&copy; 2025 SMA Negeri Unggul. All Rights Reserved.</p>
+        <div style="margin-top: 10px;">
+            <a href="#" style="color: #ffcc00; text-decoration: none; margin: 0 10px;">Facebook</a>
+            <a href="#" style="color: #ffcc00; text-decoration: none; margin: 0 10px;">Instagram</a>
+            <a href="#" style="color: #ffcc00; text-decoration: none; margin: 0 10px;">YouTube</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Kecepatan animasi (1 detik)
+            once: true,     // Animasi hanya berjalan sekali saat di-scroll
+        });
+    </script>
+
+</body>
+
+</html>
