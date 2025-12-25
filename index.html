@@ -65,10 +65,12 @@
         }
 
         .img-logo {
-             height: 60px; /* Sesuaikan tinggi */
-             width: auto;
-             background: transparent; /* Pastikan background transparan */
-             display: block;
+            height: 60px;
+            /* Sesuaikan tinggi */
+            width: auto;
+            background: transparent;
+            /* Pastikan background transparan */
+            display: block;
         }
 
         ::-webkit-scrollbar {
@@ -196,7 +198,7 @@
 
         nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             max-width: 1200px;
             margin: auto;
@@ -205,6 +207,27 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (min-width: 769px) {
+
+            /* Show hamburger on desktop and pin it to the left edge */
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                left: 18px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1100;
+            }
+
+            /* Add left spacing so logo/text doesn't overlap the hamburger */
+            .logo {
+                margin-left: 58px;
+            }
         }
 
         nav ul {
@@ -697,11 +720,13 @@
             display: block;
             width: 100%;
             text-align: center;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 10px;
         }
 
-        .hero-content h1 { text-align: center; }
+        .hero-content h1 {
+            text-align: center;
+        }
 
         /* Memberi jarak ekstra pada area tombol */
         .hero-btns {
@@ -890,44 +915,57 @@
         }
 
         @media (max-width: 768px) {
-    /* Menghilangkan menu asli agar tidak berantakan */
-    .navbar-menu { 
-        display: none; 
-        flex-direction: column;
-        position: absolute;
-        top: 60px; /* Sesuaikan dengan tinggi navbar Anda */
-        left: 0;
-        width: 100%;
-        background-color: #001f3f; /* Warna navy sekolah Anda */
-        padding: 20px;
-        z-index: 1000;
-    }
 
-    /* Munculkan menu saat class 'active' dipicu */
-    .navbar-menu.active {
-        display: flex;
-    }
+            /* Menghilangkan menu asli agar tidak berantakan */
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                /* Sesuaikan dengan tinggi navbar Anda */
+                left: 0;
+                width: 100%;
+                background-color: #001f3f;
+                /* Warna navy sekolah Anda */
+                padding: 20px;
+                z-index: 1000;
+            }
 
-    /* Gaya tombol garis tiga (Hamburger) */
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-        background: none;
-        border: none;
-    }
-    
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #d4af37; /* Warna emas sekolah Anda */
-        margin: 5px auto;
-    }
-}
+            /* Munculkan menu saat class 'active' dipicu */
+            .navbar-menu.active {
+                display: flex;
+            }
+
+            /* Gaya tombol garis tiga (Hamburger) */
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                background: none;
+                border: none;
+            }
+
+            .menu-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: #d4af37;
+                /* Warna emas sekolah Anda */
+                margin: 5px auto;
+            }
+        }
 
         /* Responsive fixes */
-        body { overflow-x: hidden; }
-        img { max-width: 100%; height: auto; display: inline-block; vertical-align: middle; }
+        body {
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
         /* Ensure specific UI images stay centered */
         .kartu-staf img,
         .berita-item img,
@@ -938,17 +976,57 @@
             margin: 0 auto;
             vertical-align: middle;
         }
-        .img-logo { max-height: 60px; height: auto; }
-        .navbar-menu { display: flex; gap: 18px; align-items: center; list-style: none; }
-        .navbar-menu li { margin: 0; }
-        .menu-toggle { display: none; background: none; border: none; }
+
+        .img-logo {
+            max-height: 60px;
+            height: auto;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .navbar-menu li {
+            margin: 0;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+        }
 
         @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            nav ul.navbar-menu { display: none; }
-            nav ul.navbar-menu.active { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: rgba(0,31,63,0.98); padding: 20px; z-index:1000; }
-            .hero h1 { font-size: 2rem; }
-            .hero { background-attachment: scroll; }
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul.navbar-menu {
+                display: none;
+            }
+
+            nav ul.navbar-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 31, 63, 0.98);
+                padding: 20px;
+                z-index: 1000;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
 
             /* Mobile menu contrast and readable links */
             nav ul.navbar-menu.active a,
@@ -967,120 +1045,137 @@
             }
 
             nav ul.navbar-menu .dropdown-content a {
-                color: rgba(255,255,255,0.95) !important;
+                color: rgba(255, 255, 255, 0.95) !important;
                 background: transparent;
-                border-bottom: 1px solid rgba(255,255,255,0.06);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
                 padding: 12px 8px;
             }
 
             /* Ensure the hamburger icon is visible */
-            .menu-toggle span { background-color: #ffd57a; }
+            .menu-toggle span {
+                background-color: #ffd57a;
+            }
         }
 
         /* Container Utama Quick Access */
-.quick-access {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 9999;
-}
+        .quick-access {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
 
-/* Style Tombol WhatsApp */
-.whatsapp-btn {
-    background-color: #25d366;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
+        /* Style Tombol WhatsApp */
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
 
-.whatsapp-btn:hover {
-    transform: scale(1.05);
-    background-color: #20ba5a;
-}
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background-color: #20ba5a;
+        }
 
-/* Style Tombol Back to Top */
-#backToTop {
-    background-color: var(--accent);
-    color: var(--primary);
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    display: none; /* Sembunyi sebelum scroll */
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
-    margin-left: auto; /* Agar sejajar kanan */
-}
+        /* Style Tombol Back to Top */
+        #backToTop {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+            /* Sembunyi sebelum scroll */
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            margin-left: auto;
+            /* Agar sejajar kanan */
+        }
 
-#backToTop:hover {
-    background-color: white;
-}
+        #backToTop:hover {
+            background-color: white;
+        }
 
-/* Responsif HP */
-@media (max-width: 480px) {
-    .whatsapp-btn span { display: none; } /* Hanya icon di HP agar tidak sempit */
-    .whatsapp-btn { padding: 15px; border-radius: 50%; }
-    .quick-access { bottom: 20px; right: 20px; }
-}
+        /* Responsif HP */
+        @media (max-width: 480px) {
+            .whatsapp-btn span {
+                display: none;
+            }
 
+            /* Hanya icon di HP agar tidak sempit */
+            .whatsapp-btn {
+                padding: 15px;
+                border-radius: 50%;
+            }
+
+            .quick-access {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
     </style>
 
 </head>
 
-        <style>
-            /* Make all section H2 headings match the #profil heading size */
-            section:not(.hero):not(.hero-premium) h2 {
-                font-size: 1.6rem;
-                line-height: 1.1;
-                text-align: left;
-                padding-left: 14px; /* small gap from the yellow bar */
-                margin-left: 0;
-            }
+<style>
+    /* Make all section H2 headings match the #profil heading size */
+    section:not(.hero):not(.hero-premium) h2 {
+        font-size: 1.6rem;
+        line-height: 1.1;
+        text-align: left;
+        padding-left: 14px;
+        /* small gap from the yellow bar */
+        margin-left: 0;
+    }
 
-            /* Ensure large titled blocks like .premium-title use the same H2 size */
-            .premium-title {
-                font-size: 1.6rem;
-                line-height: 1.1;
-                text-align: left;
-                padding-left: 14px;
-            }
+    /* Ensure large titled blocks like .premium-title use the same H2 size */
+    .premium-title {
+        font-size: 1.6rem;
+        line-height: 1.1;
+        text-align: left;
+        padding-left: 14px;
+    }
 
-            @media (max-width: 768px) {
-                section:not(.hero):not(.hero-premium) h2,
-                .premium-title {
-                    font-size: 1.25rem;
-                }
-            }
-        </style>
+    @media (max-width: 768px) {
+
+        section:not(.hero):not(.hero-premium) h2,
+        .premium-title {
+            font-size: 1.25rem;
+        }
+    }
+</style>
+
 <body>
 
     <div class="glow-bg"></div>
 
     <header>
         <nav>
+            <button class="menu-toggle" id="menu-toggle" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="logo">
                 <img src="img/logo smanus.png" alt="Logo" class="img-logo">
                 <span>SMA Negeri Unggul Sigli Swiss</span>
-                <button class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
             </div>
             <ul class="navbar-menu">
                 <li class="dropdown">
@@ -1401,17 +1496,17 @@
         </div>
     </footer>
 
-<div class="quick-access">
-    <button id="backToTop" title="Kembali ke Atas">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <div class="quick-access">
+        <button id="backToTop" title="Kembali ke Atas">
+            <i class="fas fa-chevron-up"></i>
+        </button>
 
-    <a href="https://wa.me/6285260921983?text=Halo%20Admin,%20saya%20ingin%20bertanya%20seputar%20SMANUS%20" 
-       target="_blank" class="whatsapp-btn" title="Hubungi Admin">
-        <i class="fab fa-whatsapp"></i>
-        <span>Chat Admin</span>
-    </a>
-</div>
+        <a href="https://wa.me/6285260921983?text=Halo%20Admin,%20saya%20ingin%20bertanya%20seputar%20SMANUS%20"
+            target="_blank" class="whatsapp-btn" title="Hubungi Admin">
+            <i class="fab fa-whatsapp"></i>
+            <span>Chat Admin</span>
+        </a>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/dist/aos.js"></script>
     <script>
@@ -1421,30 +1516,64 @@
         });
     </script>
 
-<script>
-    // Scroll Progress Bar
-    window.addEventListener('scroll', () => {
-        const scrollTop = document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = (scrollTop / scrollHeight) * 100;
-        document.getElementById('scroll-progress').style.width = scrollPercent + '%';
-    });
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+        });
 
-    // Back to Top Button
-    const backToTopBtn = document.getElementById('backToTop');
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
 
-    window.addEventListener('scroll', () => {
-        if (document.documentElement.scrollTop > 300) {
-            backToTopBtn.style.display = 'flex';
-        } else {
-            backToTopBtn.style.display = 'none';
-        }
-    });
+        window.addEventListener('scroll', () => {
+            if (document.documentElement.scrollTop > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
 
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    <script>
+        // Hamburger menu toggle for mobile
+        (function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navbarMenu = document.querySelector('nav ul.navbar-menu');
+            if (!menuToggle || !navbarMenu) return;
+
+            // Accessibility initial state
+            menuToggle.setAttribute('aria-expanded', 'false');
+
+            menuToggle.addEventListener('click', (e) => {
+                const isActive = navbarMenu.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', String(isActive));
+            });
+
+            // Close menu when a link is clicked (useful on mobile)
+            navbarMenu.addEventListener('click', (e) => {
+                const target = e.target;
+                if (target.tagName === 'A' && navbarMenu.classList.contains('active')) {
+                    navbarMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Ensure menu is visible/hidden correctly on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && navbarMenu.classList.contains('active')) {
+                    navbarMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 
 </body>
 
