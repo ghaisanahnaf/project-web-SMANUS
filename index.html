@@ -56,7 +56,8 @@
                 radial-gradient(at 100% 100%, rgba(229, 192, 123, 0.1) 0px, transparent 50%),
                 radial-gradient(at 0% 100%, rgba(0, 35, 71, 0.2) 0px, transparent 50%);
             background-attachment: fixed;
-            overflow-x: hidden;
+    overflow-x: hidden;
+    width: 100%;
         }
 
         ::-webkit-scrollbar {
@@ -689,12 +690,12 @@
             border-radius: 20px 20px 0 0;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            text-align: center;
-        }
-
+       .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Kolom akan turun otomatis di HP */
+    text-align: center;
+    gap: 15px;
+}
         .stat-item h2 {
             font-size: 2.5rem;
             color: var(--accent);
@@ -844,41 +845,26 @@
             margin-bottom: 20px;
         }
 
-        @media (max-width: 768px) {
-    /* Menghilangkan menu asli agar tidak berantakan */
-    .navbar-menu { 
-        display: none; 
+       @media (max-width: 992px) {
+    nav ul {
+        display: none; /* Sembunyikan menu asli */
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Sesuaikan dengan tinggi navbar Anda */
+        top: 70px;
         left: 0;
         width: 100%;
-        background-color: #001f3f; /* Warna navy sekolah Anda */
+        background: white;
         padding: 20px;
-        z-index: 1000;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     }
-
-    /* Munculkan menu saat class 'active' dipicu */
-    .navbar-menu.active {
-        display: flex;
+    nav ul.active {
+        display: flex; /* Munculkan saat tombol diklik */
     }
-
-    /* Gaya tombol garis tiga (Hamburger) */
     .menu-toggle {
-        display: block;
-        cursor: pointer;
-        background: none;
-        border: none;
-    }
-    
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #d4af37; /* Warna emas sekolah Anda */
-        margin: 5px auto;
+        display: flex !important;
     }
 }
+
     </style>
 
 </head>
@@ -1233,12 +1219,13 @@
 
 <script>
     const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.querySelector('.navbar-menu'); // Pastikan class ini sesuai dengan nama class menu Anda
+    const navLinks = document.querySelector('nav ul'); // Mengambil list menu Anda
 
     menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 </script>
+
 </body>
 
 </html>
