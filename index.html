@@ -927,12 +927,65 @@
             nav ul.navbar-menu.active { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: rgba(0,31,63,0.98); padding: 20px; z-index:1000; }
             .hero h1 { font-size: 2rem; }
             .hero { background-attachment: scroll; }
+
+            /* Mobile menu contrast and readable links */
+            nav ul.navbar-menu.active a,
+            nav ul.navbar-menu.active .dropbtn,
+            nav ul.navbar-menu.active li {
+                color: #ffffff !important;
+            }
+
+            /* Make dropdown content readable on mobile (overlay style) */
+            nav ul.navbar-menu .dropdown-content {
+                position: relative;
+                background: transparent;
+                box-shadow: none;
+                margin-top: 8px;
+                padding: 0;
+            }
+
+            nav ul.navbar-menu .dropdown-content a {
+                color: rgba(255,255,255,0.95) !important;
+                background: transparent;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+                padding: 12px 8px;
+            }
+
+            /* Ensure the hamburger icon is visible */
+            .menu-toggle span { background-color: #ffd57a; }
         }
 
     </style>
 
 </head>
 
+        </style>
+
+        <style>
+            /* Make all section H2 headings match the #profil heading size */
+            section:not(.hero):not(.hero-premium) h2 {
+                font-size: 1.6rem;
+                line-height: 1.1;
+                text-align: left;
+                padding-left: 14px; /* small gap from the yellow bar */
+                margin-left: 0;
+            }
+
+            /* Ensure large titled blocks like .premium-title use the same H2 size */
+            .premium-title {
+                font-size: 1.6rem;
+                line-height: 1.1;
+                text-align: left;
+                padding-left: 14px;
+            }
+
+            @media (max-width: 768px) {
+                section:not(.hero):not(.hero-premium) h2,
+                .premium-title {
+                    font-size: 1.25rem;
+                }
+            }
+        </style>
 <body>
 
     <div class="glow-bg"></div>
@@ -989,10 +1042,6 @@
                 <div class="bento-item item-large">
                     <i class="fas fa-microchip"></i>
                     <h3>Bebas Biaya Pembangunan</h3>
-                </div>
-                <div class="bento-item item-small">
-                    <i class="fas fa-award"></i>
-                    <h3>Akreditasi A+</h3>
                 </div>
             </div>
         </div>
