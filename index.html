@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logoo smanus.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/logo smanus.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo smanus.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/logo smanus.png">
     <title>SMA Negeri Unggul Sigli Swiss - Website Resmi</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +17,7 @@
         rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
@@ -57,6 +62,13 @@
                 radial-gradient(at 0% 100%, rgba(0, 35, 71, 0.2) 0px, transparent 50%);
             background-attachment: fixed;
             overflow-x: hidden;
+        }
+
+        .img-logo {
+             height: 60px; /* Sesuaikan tinggi */
+             width: auto;
+             background: transparent; /* Pastikan background transparan */
+             display: block;
         }
 
         ::-webkit-scrollbar {
@@ -867,6 +879,16 @@
             margin-bottom: 20px;
         }
 
+        /* Hide the small icon above some large bento items and tighten spacing */
+        .bento-item i,
+        .bento-item .icon {
+            display: none !important;
+        }
+
+        .bento-item h3 {
+            margin-top: 0;
+        }
+
         @media (max-width: 768px) {
     /* Menghilangkan menu asli agar tidak berantakan */
     .navbar-menu { 
@@ -954,6 +976,96 @@
             /* Ensure the hamburger icon is visible */
             .menu-toggle span { background-color: #ffd57a; }
         }
+
+        /* Container Utama Quick Access */
+.quick-access {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+/* Style Tombol WhatsApp */
+.whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.05);
+    background-color: #20ba5a;
+}
+
+/* Style Tombol Back to Top */
+#backToTop {
+    background-color: var(--accent);
+    color: var(--primary);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: none; /* Sembunyi sebelum scroll */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    margin-left: auto; /* Agar sejajar kanan */
+}
+
+#backToTop:hover {
+    background-color: white;
+}
+
+/* Responsif HP */
+@media (max-width: 480px) {
+    .whatsapp-btn span { display: none; } /* Hanya icon di HP agar tidak sempit */
+    .whatsapp-btn { padding: 15px; border-radius: 50%; }
+    .quick-access { bottom: 20px; right: 20px; }
+}
+
+/* --- CSS UNTUK LIGHT MODE --- */
+body.light-mode {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #1a1a1a !important;
+}
+
+body.light-mode section, 
+body.light-mode .container,
+body.light-mode .card, 
+body.light-mode .bento-item {
+    background-color: #f0f0f0 !important;
+    color: #1a1a1a !important;
+}
+
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode p {
+    color: #1a1a1a !important;
+}
+
+/* Tombol Floating saat Light Mode */
+body.light-mode .floating-btn {
+    background-color: #eee !important;
+    color: #333 !important;
+    border: 1px solid #ccc;
+}
 
     </style>
 
@@ -1320,6 +1432,18 @@
         </div>
     </footer>
 
+<div class="quick-access">
+    <button id="backToTop" title="Kembali ke Atas">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <a href="https://wa.me/6285260921983?text=Halo%20Admin,%20saya%20ingin%20bertanya%20seputar%20SMANUS%20" 
+       target="_blank" class="whatsapp-btn" title="Hubungi Admin">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat Admin</span>
+    </a>
+</div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -1329,13 +1453,30 @@
     </script>
 
 <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.querySelector('.navbar-menu'); // Pastikan class ini sesuai dengan nama class menu Anda
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+    });
 
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (document.documentElement.scrollTop > 300) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
+
 </body>
 
 </html>
